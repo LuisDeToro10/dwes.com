@@ -5,13 +5,14 @@
     <title>Elementos del lenguaje</title>
 </head>
 <body>
-    <h1>Elementos del lenguaje</h1>
-    <h2>Entrada y Salida</h2>
+    
+    <h1 style="text-decoration: underline;">Elementos del lenguaje</h1>
+    <h2 style="text-decoration: underline;">Entrada y Salida</h2>
     <p>La entrada de datos en PHP es con un formulario o enlace. La salida siempre se produce con la funcion echo, y su forma abreviada y la funcion print.
 
     Ademas, tenemos la funcion printf para salido con formato.
     </p>
-    <h3>Funcion echo</h3>
+    <h3 style="text-decoration: underline;">Funcion echo</h3>
 
 <?php
 echo "<p>La funcion echo emite el resultado de una expresion a la salida (del servidor al cliente web). Se puede usar como funcion o como construccion del lenguaje (sin parentesis)</p>";
@@ -31,10 +32,12 @@ $nombre = "Jose";
 $apellidos = "Gómez";
 echo "<br>Mi nombre es $nombre y mi apellido es $apellidos<br>";
 echo "<br>Mi nombre es " . $nombre . "y mi apellido es " . $apellidos . "<br>";
-
 echo "<br>Uno mas dos son " . 1 + 2 . " y tiene que haber salido 3 <br>";
+?>
 
-echo "<h4>Forma abreviada de echo</h4>";
+<h4 style="text-decoration: underline;">Forma abreviada de echo</h4>
+
+<?php
 echo "<p>Cuando hay que enviar a la salida el resultado de una expresion pequeña disponemos de la forma abreviada de echo que permita intercalarse en el codigo HTML con menos esfuerzo y mas legible</p>";
 
 $tiene_portatil = true;
@@ -54,7 +57,7 @@ echo "<input type='text' name='apellidos' id='apellidos' size='30'>";
 ?>
 
 <!-- Funcion print -->
-<h4>Funcion print</h4>
+<h4 style="text-decoration: underline;">Funcion print</h4>
 <p>Funciona como echo</p>
 
 <?php
@@ -64,9 +67,12 @@ $pi = 3.14159;
 $radio = 3;
 $circunferencia = 2* $pi * $radio;
 print "<p>La longitud de la circunferencia de radio $radio es $circunferencia</p>";
-
 // La funcion printf permite dar salida con formato
-echo "<h4>Funcion printf()</h4>";
+?>
+
+<h4 style="text-decoration: underline;">Funcion printf()</h4>
+
+<?php
 printf("<br>La circunferencia de radio %d es %f", $radio, $circunferencia);
 printf("<br>La circunferencia de radio %d es %10.2f", $radio, $circunferencia);
 printf("<br>La circunferencia de radio %d es %010.2f", $radio, $circunferencia);
