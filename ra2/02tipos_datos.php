@@ -203,5 +203,65 @@ y solo reconoce \\ y \'</p>
 ND;
 ?>
 
+<h2 style="text-decoration: underline;">Conversion de tipos</h2>
+<p>Hay dos tipos de conversiones, implicitas y explicitas. Implicitas: cuando en una expresion hay operandos de diferente tipo, PHP convierte algunos de ellos para evaluar la expresion.</p>
+
+
+<?php
+$cadena = "25";
+$numero = 8;
+$booleano = true;
+$resultado = $cadena + $numero + $booleano; // 25 + 8 + 1 = 34
+echo "<p>El resultado es $resultado</p>";
+
+echo <<<IMPORTANTE
+<p style='background-color: yellow;'>¡¡¡IMPORTANTE!!! Cuando se haga la conversion implicita solo afecta al operando durante la evaluacion de la expresion, pero no cambia el tipo de datos de la variable. Es decir, la conversion de la variable $cadena a entero solamente para evaluar la expresion de suma, pero $cadena sigue siendo de tipo string</p>
+IMPORTANTE;
+
+$flotante = 3.5;
+$resultado = $cadena + $flotante + $numero + $booleano; // 34 + 3.5 del flotante = 37.5
+echo "<p>El resultado es $resultado</p>";
+
+$cadena = "25 marranos dan mas provecho que 7 lechones";
+$resultado = $numero + $cadena;
+echo "<p>El resultado es $resultado</p>"; // 33
+
+echo <<<EXPLICITAS
+<p style='font-style: italic;'>Las conversiones explicitas, conocidas como casting o moldeo, se hacen precediendo la expresion con el tipo de datos a convertir entre parentesis</p>
+EXPLICITAS;
+
+// Si quiero convertir a un numero entero (int)expresion
+// Si quiero convertir a un float (float)expresion
+// Si quiero convertir a string (string)expresion
+
+echo "<p style='text-decoration: underline;'>Conversiones a entero</p>";
+$valor_booleano = true;
+$valor_convertido = (int)$valor_booleano;
+echo "<p>El valor convertido a entero es: $valor_convertido</p>";
+
+$valor_cadena = "123";
+$valor_convertido = (int)$valor_cadena;
+echo "<p>El valor convertido a entero es: $valor_convertido</p>";
+
+// Ignora el espacio si esta en el primer lugar
+$valor_cadena = " 123";
+$valor_convertido = (int)$valor_cadena;
+echo "<p>El valor convertido a entero es: $valor_convertido</p>";
+
+$valor_cadena = "a123";
+$valor_convertido = (int)$valor_cadena;
+echo "<p>El valor convertido a entero es: $valor_convertido</p>";
+
+echo "<p style='text-decoration: underline;'>Conversiones a coma flotante</p>";
+$valor_float = "3.5614";
+$valor_convertido = (float)$valor_float;
+echo "<p>El valor convertido a float es: $valor_convertido</p>";
+
+$valor_float = "2.5e-10";
+$valor_convertido = (float)$valor_float;
+echo "<p>El valor convertido a float es: $valor_convertido</p>";
+echo "<p>Tipo de datos del valor convertido: " . gettype($valor_convertido) . "</p>";
+?>
+
 </body>
 </html>
