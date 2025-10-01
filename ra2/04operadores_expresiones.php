@@ -182,8 +182,64 @@ echo "<p>El resultado es $resultado</p>";
 $nombre1 = "abcZacarias";
 $nombre2 = "abcadela";
 $resultado = $nombre1 > $nombre2;
+// Sale falso por la comparacion basada en codigo ASCII
 echo "<p>El resultado es " . (int)$resultado . "</p>";
 
+// Si necesitamos comparar sin tener en cuenta las mayusculas
+$resultado = strtoupper($nombre1) > strtoupper($nombre2);
+echo "<p>El resultado con UPPER es " . (int)$resultado ."</p>";
+
+$nombre1 = "MariO";
+$nombre2 = "Maria";
+$resultado = $nombre1 > $nombre2;
+echo "<p>El resultado de MariO y Maria es " . (int)$resultado ."</p>";
+
+$resultado = strtolower($nombre1) > strtolower($nombre2);
+echo "<p>El resultado con LOWER es " . (int)$resultado ."</p>";
+?>
+
+<h2>Operadores logicos</h2>
+<p>Los operadores logicos unen expresiones relacionales construidas con los operadores relacionales anteriores. Arrojan un resultado booleano en funcion de las tablas de verdad</p>
+
+<?php
+/*  AND    --> True si ambas expresiones son true. False en caso contrario 
+    OR     --> True si alguna de las expresiones es true. False si ambas expresiones son false
+    XOR    --> True si una y solo una de las expresiones es true. False si ambas de las expresiones son true o false
+    &&     --> Similar a AND pero con mayor precedencia
+    ||     --> Similar a OR pero con mayor precedencia
+    !      --> NOT. Invierte el resultado booleano de una expresion
+*/
+
+$n1 = 9;
+$n2 = 5;
+$n3 = 10;
+
+$resultado = $n1 == $n2 or $n2 > $n3;
+echo "<p>El resultado es " . (int)$resultado . "</p>";
+
+$resultado = $n1 == $n2 and $n2 < $n3;
+echo "<p>El resultado es " . (int)$resultado . "</p>";
+
+$resultado = $n1 == 9 or $n2 < $n1 and $n3 > 10;
+echo "<p>El resultado es " . (int)$resultado . "</p>";
+
+$resultado = $n1 === 9 || $n2 < $n1 and $n3 > 10;
+echo "<p>El resultado es " . (int)$resultado . "</p>";
+
+$resultado = !($n1 === 9) || $n2 < $n1;
+echo "<p>El resultado es " . (int)$resultado . "</p>";
+?>
+
+<h2>Precedencia y asociatividad</h2>
+<p>En una expresion con multiples operadores se ejecutan en un determinado orden dictado por la precedencia de cada operador. Si hay mas de un operador con la misma precedencia, se aplica la asociatividad.</p>
+
+<?php
+$resultado = $n1 + 5 / $n3 < $n1 ** 3 and $n3 / 5 + $n2 * 2 >= $n1 *$n2 / $n3 or $n1 - 3 % 2 == $n3 - 7;
+echo "<p>El resultado de esta cosa tan larga es " . (int)$resultado . "</p>";
+
+
+$resultado = ($n1 + 5) / $n3 < $n1 ** 3 and $n3 / ((5 + $n2) * 2) >= $n1 * ($n2 / $n3) or ($n1 - 3) % 2 == $n3 - 7;
+echo "<p>El resultado de esta cosa tan larga2 es " . (int)$resultado . "</p>";
 ?>
 
 </body>
