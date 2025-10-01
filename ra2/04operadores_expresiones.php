@@ -242,5 +242,17 @@ $resultado = ($n1 + 5) / $n3 < $n1 ** 3 and $n3 / ((5 + $n2) * 2) >= $n1 * ($n2 
 echo "<p>El resultado de esta cosa tan larga2 es " . (int)$resultado . "</p>";
 ?>
 
+
+<!-- 
+ESTILOS DE CODIFICACION
+
+Variables, metodos y variables de instancia   -> camelCase           EJ: precioVenta, descuentoFinal
+
+Clases                                        -> PascalCase          EJ: ClientePotencial, Proveedor
+
+Constantes                                    -> GREAT_SNAKE_CASE    EJ: PORCENTAJE_IVA, NUMERO_PI
+
+Propiedades/variables de clase                -> GREAT_SNAKE_CASE    
+-->
 </body>
 </html>
