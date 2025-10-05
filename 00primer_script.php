@@ -6,7 +6,7 @@
     </head>
     <body>
         
-        <h1 style="text-decoration: dotted;">Primer script en PHP</h1>
+        <h1 style="text-decoration: underline;">Primer script en PHP</h1>
 
 <?php
 echo "<h3>IES Gran Capitán</h3>";
