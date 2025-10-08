@@ -37,10 +37,8 @@
   <h3 style="text-decoration: underline;">Estructura condicional simple</h3>
 
   <?php
-  /* 
-  Sintaxis:
-
-  if( <condición>) <sentencia>;
+  /* Sintaxis:
+      if( <condición>) <sentencia>;
   */
   $numero = 4;
   if ($numero >= 4) echo "<p>El número es mayor o igual a 4</p>";
@@ -101,7 +99,8 @@
   }
   echo "</p>";
 
-  if ($edad >= 18 and $edad <= 65) { ?>
+  if ($edad >= 18 and $edad <= 65) {
+  ?>
 
     <h3 style="text-decoration: underline;">Servicios del gimnasio disponibles</h3>
     <ul>
@@ -111,7 +110,8 @@
     </ul>
 
   <?php
-  } else { ?>
+  } else {
+  ?>
     <h3 style="text-decoration: underline;">Servicios para menores o jubilados</h3>
     <ul>
       <li>Taichi</li>
@@ -121,7 +121,6 @@
 
   <?php
   }
-
   $tipoCarnet = "C1";
   if ($tipoCarnet === "C1")
     echo <<<CARNETB1
@@ -133,7 +132,9 @@
   </ul>
   CARNETB1;
   ?>
+
   <h2 style="text-decoration: underline;">Sentencia if anidada</h2>
+
   <?php
   $nota = 6.5;
   echo "<p>Con la nota $nota tienes un ";
@@ -176,26 +177,27 @@
   }
   echo "</p>";
   ?>
+
   <h2 style="text-decoration: underline;">Estructura condicional múltiple</h2>
+
   <?php
   // Sentencia switch
-  /*
-switch( <expresión> ) {
-  case <valor1>:
-    // Sentencias a ejecutar si expresión === valor1
-    break;
+  /*  switch( <expresión> ) {
+        case <valor1>:
+          // Sentencias a ejecutar si expresión === valor1
+          break;
 
-  case <valor2>:
-    // Sentencias a ejecutar si expresión === valor2
+        case <valor2>:
+          // Sentencias a ejecutar si expresión === valor2
 
-  ....
-  case <valorN>:
-    // Sentencias a ejecutar si expresión === valorN
-  [default:
-    // Sentencias si expresión !== de todos los valores
-  ]
-}
-  // Siguiente sentencia a switch
+        ....
+        case <valorN>:
+          // Sentencias a ejecutar si expresión === valorN
+        [default:
+          // Sentencias si expresión !== de todos los valores
+        ]
+    }
+    // Siguiente sentencia a switch
 */
   $nota = 7;
   echo "<p>Con un $nota tienes un ";
@@ -222,12 +224,12 @@ switch( <expresión> ) {
       echo "Sobresaliente";
       break;
     default:
-      echo "La nota tiene que estar enter 0 y 10";
+      echo "La nota tiene que estar entre 0 y 10";
   }
   echo "</p>";
 
   $perfil = "admin";
-  echo "<p>Con un perfil de $perfil tienes acceos a: ";
+  echo "<p>Con un perfil de $perfil tienes acceso a: ";
   switch ($perfil) {
     case "user":
       echo "Lectura y escritura en la BD";
@@ -243,22 +245,26 @@ switch( <expresión> ) {
   }
   echo "</p>";
   ?>
+
   <h2 style="text-decoration: underline;">Expresión match</h2>
+
   <?php
   $nota_suspensa = 4.5;
   $calificacion = match ($nota) {
     0, 1, 2, 3, 4, $nota_suspensa     => "Suspenso",
-    4 + 1, 6 - 1                 => "Aprobado",
-    "5"               => "Aprobado",
-    6                 => "Bien",
-    7, 8               => "Notable",
-    9, 10              => "Sobresaliente",
-    default           => "Error. La nota tiene que estar entre 0 y 10"
+    4 + 1, 6 - 1                      => "Aprobado",
+    "5"                               => "Aprobado",
+    6                                 => "Bien",
+    7, 8                              => "Notable",
+    9, 10                             => "Sobresaliente",
+    default                           => "Error. La nota tiene que estar entre 0 y 10"
   };
 
   echo "<p>Con una nota de $nota tienes un $calificacion</p>";
   ?>
+
   <h2 style="text-decoration: underline;">Operador ternario</h2>
+
   <?php
   // Sintaxis: 
   //  <condición> ? <expresión_true> : <expresión_false>;
@@ -270,6 +276,7 @@ switch( <expresión> ) {
   $nombre = "Juan Gómez";
   $conBeca = false;
   ?>
+
   <form method="POST">
     <input type="text" name="nombre" size="30" value="<?= isset($nombre) ? $nombre : "" ?>">
     <br>
@@ -277,8 +284,8 @@ switch( <expresión> ) {
   </form>
 
   <h2 style="text-decoration: underline;">Operador de fusión de null</h2>
-  <?php
 
+  <?php
   $metodo = "POST";
   $segundoMetodo = "GET";
   $por_defecto = "main";
@@ -300,11 +307,12 @@ switch( <expresión> ) {
     <li>For con contador (estilo de Java y C++)</li>
     <li>For para colecciones de datos</li>
     <li>While</li>
-    <li>Do .. while</li>
+    <li>Do ... while</li>
     <li>Sentencias break y continue</li>
   </ul>
 
   <h3 style="text-decoration: underline;">Bucle for con contador de bucle</h3>
+
   <?php
   // Tabla de multiplicar
   $numero = 4;
@@ -329,27 +337,27 @@ switch( <expresión> ) {
   echo "</p>";
 
   echo "<p>";
+
   // Visualizar los números pares entre 2 y 20
   for ($i = 2; $i <= 20; $i += 2) {
     echo "El número par es $i<br>";
   }
   echo "</p>";
 
-  /*
-for(;;) {
-
-}
-*/
+  /* for(;;) {
+    // Bucle infinito
+  }
+  */
   ?>
 
   <h3 style="text-decoration: underline;">Bucle while</h3>
+
   <?php
   // Sintaxis:
   //  while(<condición>) sentencia;
 
   // Sumar números pares que se generan aletatoriamente
   // hasta que salga el 0
-
   $numero = rand(0, 10);
   $total = 0;
   echo "<p>";
@@ -361,21 +369,20 @@ for(;;) {
   }
   echo "El total de los pares es $total</p>";
   ?>
-  <h3 style="text-decoration: underline;">Bucle do .. while</h3>
+
+  <h3 style="text-decoration: underline;">Bucle do ... while</h3>
+
   <?php
   // Sintaxis:
-  /*
-    do <sentencia> while(<condición>);
+  /* do <sentencia> while(<condición>);
 
     do {
     
     }
     while (<condición>);
-*/
-  // Contar cuantos números impares se
-  // generan aleatoriamente entre -5 y 50
-  // hasta que se genere uno negativo
+  */
 
+  // Contar cuantos números impares se generan aleatoriamente entre -5 y 50 hasta que se genere uno negativo
   $contador = 0;
   echo "<p>";
   do {
@@ -386,18 +393,16 @@ for(;;) {
 
   echo "Se han generado $contador números impares</p>";
   ?>
+
   <h3 style="text-decoration: underline;">Sentencias break y continue</h3>
+
   <?php
-  /*
-  break -> Termina la iteración actual y se sale del bucle.
-  continue -> Termina la iteración actual e inicia la siguiente, previa
-              comprobación de la condición de permanencia en el bucle.
-*/
+  /*  break     -> Termina la iteración actual y se sale del bucle.
+      continue  -> Termina la iteración actual e inicia la siguiente, previa comprobación de la condición de permanencia en el bucle.
+  */
 
   // Simulación del bucle repetir .. hasta
-  // Generar 20 números aleatorios hasta que se genera el 0
-  // y presentar en color rojo los que son múltiplos de 3.
-
+  // Generar 20 números aleatorios hasta que se genera el 0 y presentar en color rojo los que son múltiplos de 3.
   while (true) {
     $numero = rand(0, 20);
 
@@ -410,10 +415,7 @@ for(;;) {
     if (!$numero) break;
   }
 
-  // Generar números aleatorios entre 1 y 10, y sumar
-  // los pares hasta que la suma sea superior a 100 o 
-  // se haya generado 20 números como máximo.
-
+  // Generar números aleatorios entre 1 y 10, y sumar los pares hasta que la suma sea superior a 100 o se haya generado 20 números como máximo.
   echo "<p>";
   $sumaPares = 0;
   $numeros = 0;
@@ -429,15 +431,9 @@ for(;;) {
   }
   echo "La suma de pares es $sumaPares y se han generado $numeros</p>";
 
-  // Break admite un argumento numérico entero que indica
-  // de qué bucle se sale (cuando hay bucles anidados)
+  // Break admite un argumento numérico entero que indica de qué bucle se sale (cuando hay bucles anidados)
 
-  // Generar 200 números aleatorios entre 1y 1000
-  // Por cada uno se comprueba cuantos números primos
-  // hay desde 1 hasta ese número. 
-  // Si hay más de 10 números primos que termine.
-  // Visualizar cada número generado y cuantos  primos 
-  // hasta ese número 
+  // Generar 200 números aleatorios entre 1 y 1000. Por cada uno se comprueba cuantos números primos hay desde 1 hasta ese número. Si hay más de 10 números primos que termine. Visualizar cada número generado y cuantos primos hay hasta ese número.
   echo "<p>";
   for ($i = 0; $i < 200; $i++) {
     $numero = rand(1, 1000);
@@ -446,37 +442,28 @@ for(;;) {
     echo "Se ha generado el numero $numero<br>";
     // 124
     for ($j = 1; $j <= $numero; $j++) {
-      // Un número es primo si no tiene divisores
-      // menores que su raíz cuadrada
-      // Ej. 124 -> Raiz 11 ->
-
-      // 11
+      // Un número es primo si no tiene divisores menores que su raíz cuadrada
 
       $raiz = intval($j ** 0.5); // sqrt($j);
       while ($raiz > 1) {
-        // 124  % 11  === 0 
-        //echo "\$j es $j y \$raiz es $raiz<br>";
         if ($j % $raiz === 0) break;
 
         $raiz--;
       }
 
-      // Si llego aquí, no ha encontrado ningún
-      // número inferior a su raiz que sea divisible
-      // es primo.
+      // Si llego aquí, no ha encontrado ningún número inferior a su raiz que sea divisible, es primo.
       if ($raiz === 1) {
         $primos++;
         echo "El número $j es primo<br>";
         echo "Encontrados $primos números primos<br>";
       }
-      // si $j es primo se cuenta ++$primos;
 
       if ($primos > 10) break 2;
-      // si $primos > 10 se acaba -> break;
     }
   }
   echo "</p>";
   ?>
+  
 </body>
 
 </html>
