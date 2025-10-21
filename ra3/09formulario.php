@@ -59,8 +59,7 @@ inicioHtml("09. Formulario", ["/estilos/general.css", "/estilos/formulario.css"]
   <fieldset>
     <legend>Solicitud de empleo</legend>
     <label for="nombre">Nombre completo</label>
-    <input type="text" name="nombre" id="nombre" size="50" 
-      placeholder="Escribe tu nombre completo">
+    <input type="text" name="nombre" id="nombre" size="50" placeholder="Escribe tu nombre completo">
 
     <label for="email">Email</label>
     <input type="email" name="email" id="email" size="30">
