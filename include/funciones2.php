@@ -10,5 +10,4 @@ function restar(int|float $s, int|float $m): int|float {
   $resta = $m - $s;
   return $resta;
 }
-
-
+?>

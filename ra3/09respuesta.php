@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
 
-inicioHtml("Proceso del formulario", ["/estilos/general.css"]);
+inicioHtml("09. Proceso del formulario", ["/estilos/general.css"]);
 
 echo "<h1>Proceso de la solicitud de empleo</h1>";
 

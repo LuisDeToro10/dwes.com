@@ -34,9 +34,9 @@ pequeñas diferencias.
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones2.php");
 
-inicioHtml("Inclusión de archivos");
+inicioHtml("08. Inclusión de archivos", ["/estilos/general.css"]);
 
-echo "<h1>Inclusión de archivos</h1>";
+echo "<h1>08. Inclusión de archivos</h1>";
 $suma = sumar(4, 5);
 
 finHtml();

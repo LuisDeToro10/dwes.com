@@ -1,7 +1,7 @@
 <?php
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
 
-inicioHtml("Formulario", ["/estilos/general.css", "/estilos/formulario.css"]);
+inicioHtml("09. Formulario", ["/estilos/general.css", "/estilos/formulario.css"]);
 /*
 5.1 Array EGPCS (Environment, GET, POST, Cookies, Server)
  Arrays asociativos superglobales (accesibles desde cualquier script y cualquier función)
@@ -65,7 +65,7 @@ inicioHtml("Formulario", ["/estilos/general.css", "/estilos/formulario.css"]);
     <label for="clave">Clave</label>
     <input type="password" name="clave" id="clave" size="10">
 
-    <label for="linkedin">Likedin</label>
+    <label for="linkedin">LinkedIn</label>
     <input type="url" name="linkedin" id="linkedin" size="50"> 
 
   </fieldset>
