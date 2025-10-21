@@ -50,6 +50,9 @@ inicioHtml("09. Formulario", ["/estilos/general.css", "/estilos/formulario.css"]
  */
 
 ?>
+
+
+
 <h1>Proceso de Formularios</h1>
 <h2>Diferencias entre GET y POST</h2>
 <form method="POST" action="/ra3/09respuesta.php">
@@ -67,10 +70,62 @@ inicioHtml("09. Formulario", ["/estilos/general.css", "/estilos/formulario.css"]
 
     <label for="linkedin">LinkedIn</label>
     <input type="url" name="linkedin" id="linkedin" size="50"> 
-
   </fieldset>
 
-  <input type="submit" name="operacion" value="Enviar">
+  <fieldset>
+    <legend>Detalles del trabajo</legend>
+    <label for="fecha_disponible">Fecha disponibilidad</label>
+    <input type="date" name="fecha_disponibilidad" id="fecha_disponibilidad">
+
+    <label for="hora_entrevista">Hora</label>
+    <input type="time" name="hora_entrevista" id="hora_entrevista">
+
+    <label for="salario">Salario esperado</label>
+    <input type="number" name="salario" id="salario" min="1000">
+  </fieldset>
+
+  <fieldset>
+    <legend>Preferencias del puesto</legend>
+    <label>Areas del trabajo preferidas</label>
+    <div>
+      <input type="checkbox" name="areas[]" id="area1" value="ds">Desarrollo Web<br>
+      <input type="checkbox" name="areas[]" id="area2" value="dg">Diseño grafico<br>
+      <input type="checkbox" name="areas[]" id="area3" value="mk">Marketing<br>
+      <input type="checkbox" name="areas[]" id="area4" value="rh">Recursos humanos<br>
+    </div>
+
+    <label for="modalidad">Modalidad</label>
+    <div>
+      <input type="radio" name="modalidad" id="modalidad1" value="Presencial">Presencial<br>
+      <input type="radio" name="modalidad" id="modalidad2" value="Teletrabajo">Teletrabajo<br>
+      <input type="radio" name="modalidad" id="modalidad3" value="Mixto">Mixto<br>
+    </div>
+
+    <label for="tipo_contrato">Tipo de contrato</label>
+    <select name="tipo_contrato" id="tipo_contrato">
+      <option value="">Elija un tipo de contrato</option>
+      <option value="tc">Tiempo completo</option>
+      <option value="mj">Media jornada</option>
+      <option value="fr">Freelance</option>
+    </select>
+
+    <label for="habilidades">Habilidades</label>
+    <select name="habilidades[]" id="habilidades" multiple size="5">
+      <option value="js">JavaScript</option>
+      <option value="py">Python</option>
+      <option value="uxui">Diseño UX/UI</option>
+      <option value="seo">SEO/SEM</option>
+      <option value="gp">Gestion de proyectos</option>
+    </select>
+
+    <label>Comentarios</label>
+    <textarea name="comentarios" id="comentarios" rows="4" cols="40" placeholder="Cuentame mas sobre ti"></textarea>
+  </fieldset>
+
+  <div>
+    <input type="submit" name="operacion" value="Enviar">
+    <input type="reset" value="Empezar otra vez">
+  </div>
 
 </form>
 
