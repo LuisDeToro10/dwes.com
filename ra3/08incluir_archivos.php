@@ -29,7 +29,6 @@ pequeñas diferencias.
 
     Si quiero usar la raíz de documentos en el argumento de include(), ... dispongo del
     elemento $_SERVER['DOCUMENT_ROOT]
-
 */
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones.php");
 require_once($_SERVER['DOCUMENT_ROOT'] . "/include/funciones2.php");
@@ -40,10 +39,4 @@ echo "<h1>08. Inclusión de archivos</h1>";
 $suma = sumar(4, 5);
 
 finHtml();
-
-
-
-
-
-
 ?>
