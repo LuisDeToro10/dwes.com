@@ -62,19 +62,75 @@ define("DIRECTORIO_SUBIDA", $_SERVER['DOCUMENT_ROOT'] . "/archivos_cv");
 
 inicioHtml("12. Subida de Archivos", ["/estilos/general.css", "/estilos/formulario.css"]);
 
-if ( $_SERVER['REQUEST_METHOD'] === 'POST' ) {
-    // Procesamos el formulario
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  // Procesamos el formulario
+  // 1º Comprobamos si el directorio de subida existe. Si no existe, lo creamos.
+  if (!file_exists(DIRECTORIO_SUBIDA) && !is_dir(DIRECTORIO_SUBIDA)) {
+    // No existe, lo creamos
+    if (!mkdir(DIRECTORIO_SUBIDA, 0775)) {
+      echo "<h3>Error en la creacion del directorio de subida.</h3>";
+      exit(1);
+    }
+  }
 
 
+  // 2º Acceder al archivo subido
+  // Array superglobal $_FILES
+  /* Contiene la informacion de los archivos subidos. Es un array asociativo donde la clave de indexacion es el nombre del campo file del formulario.
+
+    <input type="file" name="archivo_cv" ...>    --> CLave de indexacion es archivo_cv
+
+    Cada elemento del array contiene informacion del archivo en otro array asociativo:
+      - name        --> Nombre original del archivo en el cliente.
+      - type        --> Tipo MIME del archivo,
+      - size        --> Tamaño en bytes del archivo.
+      - tmp_name    --> Nombre del archivo temporal del servidor.
+      - error       --> Codigo numerico indicando si hubo algun error, que tipo de error o si no lo hubo.
+    */
+
+  // Comprobamos si ha una clave para el archivo de subida.
+  if (!isset($_FILES['archivo_cv'])) {
+    echo "<h3>Error en la subida de archivo. El nombre del control de formulario no es valido.</h3>";
+    exit(2);
+  }
+
+  // Existe la clave del archivo
+  echo <<<ARCHIVO
+    <p>Nombre de archivo: {$_FILES['archivo_cv']['name']}<br
+    Tipo de archivo: {$_FILES['archivo_cv']['type']}<br>
+    Tamaño (bytes): {$_FILES['archivo_cv']['size']}<br>
+    Archivo temporal: {$_FILES['archivo_cv']['tmp_name']}<br>
+    Código de error: {$_FILES['archivo_cv']['error']}</p>
+  ARCHIVO;
+
+  if ( $_FILES['archivo_cv']['error'] === UPLOAD_ERR_FORM_SIZE ) {
+    echo "<h3>Error en la subida de archivo. El tamaño del archivo supera MAX_FILE_SIZE.</h3>";
+    exit(3);
+  }
+
+  if ( $_FILES['archivo_cv']['error'] === UPLOAD_ERR_INI_SIZE ) {
+    echo "<h3>Error en la subida de archivo. El tamaño del archivo supera el limite en php.ini.</h3>";
+    exit(4);
+  }
+
+  if ( $_FILES['archivo_cv']['error'] === UPLOAD_ERR_NO_FILE ) {
+    echo "<h3>Error en la subida de archivo. EL usuario no ha proporcionado un archivo.</h3>";
+    exit(5);
+  }
+
+  if ( $_FILES['archivo_cv']['error'] === UPLOAD_ERR_OK ) {
+    echo "<h3>Error en la subida de archivo.</h3>";
+    exit(4);
+  }
 }
 
 // Presenta el formulario
 ?>
 
 <h3>Registro de CV de demandantes de empleo</h3>
-<form method="POST" enctype="multipart/form-data" action="<?=$_SERVER['PHP_SELF']?>">
+<form method="POST" enctype="multipart/form-data" action="<?= $_SERVER['PHP_SELF'] ?>">
   <!-- Limite blando de PHP. 1MB -->
-  <input type="hidden" name="MAX_FILE_SIZE" id="MAX_FILE_SIZE" value="<?=1024 * 1024?>" >
+  <input type="hidden" name="MAX_FILE_SIZE" id="MAX_FILE_SIZE" value="<?= 1024 * 1024 ?>">
   <fieldset>
     <label for="dni">DNI</label>
     <input type="text" name="dni" id="dni" size="10">
